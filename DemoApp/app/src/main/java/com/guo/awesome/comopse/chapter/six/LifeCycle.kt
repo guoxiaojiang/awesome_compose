@@ -15,7 +15,7 @@ fun LifeCycleCounter() {
 
     Column {
         Button(onClick = {
-            count++
+            count += 1
         }) {
             Text("Click to plus")
         }

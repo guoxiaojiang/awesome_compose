@@ -7,20 +7,23 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
-import com.guo.awesome.comopse.chapter.six.LifeCycleCounter
+import androidx.compose.ui.unit.sp
 import com.guo.awesome.comopse.chapter.theme.MyApplicationTheme
 
 class MainActivity : ComponentActivity() {
@@ -63,7 +66,35 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             MyApplicationTheme(true) {
-                LifeCycleCounter()
+                SearchButton(modifier = Modifier.semantics { contentDescription = "点击这里开始搜索内容" })
+            }
+        }
+    }
+}
+
+@Composable
+fun ScrollingList() {
+
+    Box {
+        val listState = rememberLazyListState()
+
+        Text("你好",
+            Modifier.offset {
+                IntOffset(x = 0, y = listState.firstVisibleItemScrollOffset / 2)
+            }
+        )
+
+        Text("天啊",
+            Modifier.offset (
+                    y = with(LocalDensity.current) {
+                       (listState.firstVisibleItemScrollOffset / 2).toDp()
+                    }
+                )
+        )
+
+        LazyColumn(state = listState) {
+            items(100) {
+                Text("item $it")
             }
         }
     }
@@ -78,8 +109,8 @@ private fun Greeting(name: String) {
 
 }
 
-@Preview()
-@Composable()
+@Preview
+@Composable
 fun NewsStory() {
 //    MyApplicationTheme(false) {
 //        val typography = MaterialTheme.typography;
@@ -107,6 +138,22 @@ fun NewsStory() {
 //            Text(text = "Apr 16", style = typography.body2)
 //        }
 //    }
+}
+
+@Composable
+fun SearchButton(modifier: Modifier) {
+    Row(modifier = modifier
+        .background(Color.DarkGray)
+        .padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
+        Image(painter = painterResource(id = android.R.drawable.ic_menu_search), contentDescription = "")
+        Text(text = "搜索", fontSize = 18.sp, color = Color.White)
+    }
+}
+
+@Preview
+@Composable
+fun TestLikeButton() {
+    SearchButton(modifier = Modifier.semantics { contentDescription = "abc" })
 }
 
 @Composable
@@ -173,9 +220,15 @@ fun LayoutsCodelab() {
 
 @Composable
 fun BodyContent(modifier: Modifier = Modifier) {
+    val rememberLazyListState = rememberLazyListState()
     Column(modifier = modifier) {
         Text(text = "Hi there!")
         Text(text = "Thanks for going through the Layouts codelab")
+        with(LocalDensity.current) {
+            2.toDp().toPx()
+        }
+        3.dp
+        rememberLazyListState
     }
 }
 
