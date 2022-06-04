@@ -22,7 +22,7 @@ import com.compose.awsome.news.ui.theme.NewsTheme
 
 @Composable
 fun OrderListTopBar() {
-  NewsTopBar(title = "订单列表")
+  NewsTopBar(title = "视频头条")
 }
 
 @Composable

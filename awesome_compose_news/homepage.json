@@ -1,0 +1,29 @@
+{
+  "data": {
+    "news": [
+      {
+        "title": "认识 Compose",
+        "pic": "https://developer.android.google.cn/images/jetpack/compose/compose-landing-roadmap.svg",
+        "author": "郭子",
+        "date": "2022-06-06",
+        "content": "在过去的十年中，从开发者角度来讲，Android领域的开发体验并不是非常友好，开发者常常被太多的样板代码所困扰，尤其是和近些年前端领域的开发体验比起来尤为明显。Jetpack Compose的产生很大一个原因就是要解决这个问题。"
+      },
+      {
+        "title": "Compose开发环境",
+        "pic": "https://developer.android.google.cn/images/hero-assets/android-jetpack.svg",
+        "author": "庞老师",
+        "date": "2022-06-06",
+        "content": "工欲善其事，必先利其器。开发环境的配置、IDE的使用方式、Demo。在对Compose的概念和优势、产生背景了解之后，下一步就可以开始尝试上手体验简单的Compose编程了。笔者认为，学习一门技术最高效的方式就是从最简单的示例开始上手实践。"
+      },
+      {
+        "title": "Compose知识储备",
+        "pic": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2F79dc26242c2624a5d09334a2ced9bab052e1ffc8.png&refer=http%3A%2F%2Fi0.hdslb.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1656948695&t=e81641a8a9996ff39e5fda53c283af11",
+        "author": "郭子",
+        "date": "2022-06-06",
+        "content": "在学习了开发工具和简单示例之后，本章开始就可以系统性地开始Compose之旅了，本章主要内容是开发Compose应用程序需要具备的一些基础知识，包括Kotlin相关知识、Composable函数的详解、副作用的概念和在Compose中的应用、Compose编程思想。"
+      }
+    ]
+  },
+  "code": 0,
+  "msg": "success"
+}
