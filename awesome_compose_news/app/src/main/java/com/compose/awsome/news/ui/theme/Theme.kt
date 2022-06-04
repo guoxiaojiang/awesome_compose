@@ -12,20 +12,12 @@ private val LightColorPalette = NewsColors(
   background = white2,
   listItem = white,
   divider = white3,
-  chatPage = white2,
   textPrimary = black3,
   textPrimaryMe = black3,
   textSecondary = grey1,
   onBackground = grey3,
   icon = black,
-  iconCurrent = blue,
-  badge = red1,
-  onBadge = white,
-  bubbleMe = green1,
-  bubbleOthers = white,
-  textFieldBackground = white,
-  price = red4,
-  chatPageBgAlpha = 0f,
+  iconCurrent = blue
 )
 
 private val DarkColorPalette = NewsColors(
@@ -33,20 +25,12 @@ private val DarkColorPalette = NewsColors(
   background = black2,
   listItem = black3,
   divider = black4,
-  chatPage = black2,
   textPrimary = white4,
-  textPrimaryMe = black6,
+  textPrimaryMe = white5,
   textSecondary = grey1,
   onBackground = grey1,
   icon = white5,
-  iconCurrent = blue,
-  badge = red1,
-  onBadge = white,
-  bubbleMe = green2,
-  bubbleOthers = black5,
-  textFieldBackground = black7,
-  price = grey5,
-  chatPageBgAlpha = 0f,
+  iconCurrent = blue
 )
 
 private val LocalWeColors = compositionLocalOf {
@@ -70,20 +54,12 @@ class NewsColors(
   background: Color,
   listItem: Color,
   divider: Color,
-  chatPage: Color,
   textPrimary: Color,
   textPrimaryMe: Color,
   textSecondary: Color,
   onBackground: Color,
   icon: Color,
-  iconCurrent: Color,
-  badge: Color,
-  onBadge: Color,
-  bubbleMe: Color,
-  bubbleOthers: Color,
-  textFieldBackground: Color,
-  price: Color,
-  chatPageBgAlpha: Float,
+  iconCurrent: Color
 ) {
   var bottomBar: Color by mutableStateOf(bottomBar)
     private set
@@ -92,8 +68,6 @@ class NewsColors(
   var listItem: Color by mutableStateOf(listItem)
     private set
   var chatListDivider: Color by mutableStateOf(divider)
-    private set
-  var chatPage: Color by mutableStateOf(chatPage)
     private set
   var textPrimary: Color by mutableStateOf(textPrimary)
     private set
@@ -107,20 +81,6 @@ class NewsColors(
     private set
   var iconCurrent: Color by mutableStateOf(iconCurrent)
     private set
-  var badge: Color by mutableStateOf(badge)
-    private set
-  var onBadge: Color by mutableStateOf(onBadge)
-    private set
-  var bubbleMe: Color by mutableStateOf(bubbleMe)
-    private set
-  var bubbleOthers: Color by mutableStateOf(bubbleOthers)
-    private set
-  var textFieldBackground: Color by mutableStateOf(textFieldBackground)
-    private set
-  var price: Color by mutableStateOf(price)
-    private set
-  var chatPageBgAlpha: Float by mutableStateOf(chatPageBgAlpha)
-    private set
 }
 
 @Composable
@@ -133,39 +93,23 @@ fun NewsTheme(theme: NewsTheme.Theme = NewsTheme.Theme.Light, content: @Composab
   val background = animateColorAsState(targetColors.background, TweenSpec(600))
   val listItem = animateColorAsState(targetColors.listItem, TweenSpec(600))
   val chatListDivider = animateColorAsState(targetColors.chatListDivider, TweenSpec(600))
-  val chatPage = animateColorAsState(targetColors.chatPage, TweenSpec(600))
   val textPrimary = animateColorAsState(targetColors.textPrimary, TweenSpec(600))
   val textPrimaryMe = animateColorAsState(targetColors.textPrimaryMe, TweenSpec(600))
   val textSecondary = animateColorAsState(targetColors.textSecondary, TweenSpec(600))
   val onBackground = animateColorAsState(targetColors.onBackground, TweenSpec(600))
   val icon = animateColorAsState(targetColors.icon, TweenSpec(600))
   val iconCurrent = animateColorAsState(targetColors.iconCurrent, TweenSpec(600))
-  val badge = animateColorAsState(targetColors.badge, TweenSpec(600))
-  val onBadge = animateColorAsState(targetColors.onBadge, TweenSpec(600))
-  val bubbleMe = animateColorAsState(targetColors.bubbleMe, TweenSpec(600))
-  val bubbleOthers = animateColorAsState(targetColors.bubbleOthers, TweenSpec(600))
-  val textFieldBackground = animateColorAsState(targetColors.textFieldBackground, TweenSpec(600))
-  val price = animateColorAsState(targetColors.price, TweenSpec(600))
-  val chatPageBgAlpha = animateFloatAsState(targetColors.chatPageBgAlpha, TweenSpec(600))
   val colors = NewsColors(
     bottomBar = bottomBar.value,
     background = background.value,
     listItem = listItem.value,
     divider = chatListDivider.value,
-    chatPage = chatPage.value,
     textPrimary = textPrimary.value,
     textPrimaryMe = textPrimaryMe.value,
     textSecondary = textSecondary.value,
     onBackground = onBackground.value,
     icon = icon.value,
     iconCurrent = iconCurrent.value,
-    badge = badge.value,
-    onBadge = onBadge.value,
-    bubbleMe = bubbleMe.value,
-    bubbleOthers = bubbleOthers.value,
-    textFieldBackground = textFieldBackground.value,
-    price = price.value,
-    chatPageBgAlpha = chatPageBgAlpha.value,
   )
 
   CompositionLocalProvider(LocalWeColors provides colors) {

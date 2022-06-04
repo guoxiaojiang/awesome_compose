@@ -3,20 +3,43 @@ package com.compose.awsome.news
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.compose.awsome.news.data.DataState
+import com.compose.awsome.news.data.NewsResponse
 import com.compose.awsome.news.data.Order
-import com.compose.awsome.news.data.Poi
+import com.compose.awsome.news.net.ApiService
 import com.compose.awsome.news.ui.theme.NewsTheme
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 
 class NewsViewModel : ViewModel() {
-  var poiList by mutableStateOf(
-    listOf(
-      Poi("金枪鱼紫菜包饭", "月售 2133 好评率99%", "￥18", R.mipmap.header),
-      Poi("便宜坊", "月售 133 好评率98%", "￥98", R.mipmap.header),
-      Poi("凉皮先生.凉皮.肉夹馍.酸辣粉.各种各样.面食等等省略号", "月售 166 好评率93%", "￥22", R.mipmap.header),
-      Poi("小恒水饺（望京SOHO店）", "月售 87 好评率91%", "￥17", R.mipmap.header),
-    )
-  )
+
+  val stateLiveData = MutableLiveData<DataState>().apply {
+    value = DataState.Loading
+  }
+
+  private fun launch(block: suspend CoroutineScope.() -> Unit) {
+    viewModelScope.launch {
+      kotlin.runCatching {
+        block()
+      }.onSuccess {
+        stateLiveData.value = DataState.Success
+      }.onFailure {
+        stateLiveData.value = DataState.Error(it.message)
+      }
+    }
+  }
+
+  val newsLiveData = MutableLiveData<NewsResponse>()
+
+  fun getNewsLists() {
+    launch {
+      val newsModel = ApiService.getNews()
+      newsLiveData.value = newsModel
+    }
+  }
 
   var orderList by mutableStateOf(
     listOf(

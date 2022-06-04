@@ -10,22 +10,25 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Divider
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.rememberImagePainter
 import com.compose.awsome.news.NewsViewModel
-import com.compose.awsome.news.data.Poi
+import com.compose.awsome.news.data.NewsItem
 import com.compose.awsome.news.ui.theme.NewsTheme
 
 @Composable
 fun PoiListTopBar() {
-    NewsTopBar(title = "震惊头条")
+    NewsTopBar(title = "Compose 头条")
 }
 
 @Preview(showBackground = true)
@@ -36,55 +39,76 @@ fun PoiListTopBarPreview() {
 
 @Composable
 fun PoiListItem(
-    poi: Poi
+    item: NewsItem
 ) {
     Row(
-      Modifier
-        .fillMaxWidth()
-        .clickable(onClick = {
-//        poi.name = "name...."
-        })
+        Modifier
+            .fillMaxWidth()
+            .clickable(onClick = {
+            })
     ) {
         Image(
-            painterResource(poi.pic), "pic", Modifier
-            .padding(12.dp, 4.dp, 8.dp, 4.dp)
-            .size(88.dp)
-            .clip(RoundedCornerShape(6.dp))
+           painter =  rememberImagePainter(data = item.pic),
+            contentDescription = "pic", modifier = Modifier
+                .padding(12.dp, 4.dp, 8.dp, 4.dp)
+                .size(88.dp)
+                .clip(RoundedCornerShape(6.dp)),
+            contentScale = ContentScale.Crop
         )
         Column(
-          Modifier
-            .weight(1f)
-            .align(Alignment.CenterVertically)
+            Modifier
+                .weight(1f)
+                .align(Alignment.CenterVertically)
         ) {
             Text(
-                poi.name,
+                item.title,
                 fontSize = 18.sp,
                 color = NewsTheme.colors.textPrimary,
                 maxLines = 1,
                 fontWeight = FontWeight.Bold,
-                overflow = TextOverflow.Ellipsis
+                overflow = TextOverflow.Ellipsis,
+                modifier = Modifier.padding(top = 5.dp)
             )
-            Text(poi.desc, fontSize = 14.sp, color = NewsTheme.colors.textSecondary)
             Text(
-                poi.price,
+                item.content,
                 fontSize = 15.sp,
-                color = NewsTheme.colors.price,
-                fontWeight = FontWeight.Bold
+                color = NewsTheme.colors.textSecondary,
+                maxLines = 6,
+                modifier = Modifier.padding(top = 5.dp)
             )
+            Row(
+                Modifier
+                    .fillMaxWidth()
+                    .padding(top = 5.dp, bottom = 5.dp)
+            ) {
+                Text(
+                    item.author,
+                    fontSize = 13.sp,
+                    color = NewsTheme.colors.textPrimaryMe,
+                )
+
+                Text(
+                    item.date,
+                    fontSize = 13.sp,
+                    color = NewsTheme.colors.textPrimaryMe,
+                    modifier = Modifier.padding(start = 6.dp)
+                )
+            }
+
         }
     }
 }
 
 @Composable
-fun NewsList(pois: List<Poi>) {
+fun NewsList(newsItem: List<NewsItem>) {
     LazyColumn(
-      Modifier
-        .background(NewsTheme.colors.listItem)
-        .fillMaxWidth()
+        Modifier
+            .background(NewsTheme.colors.listItem)
+            .fillMaxWidth()
     ) {
-        itemsIndexed(pois) { index, poi ->
+        itemsIndexed(newsItem) { index, poi ->
             PoiListItem(poi)
-            if (index < pois.size - 1) {
+            if (index < newsItem.size - 1) {
                 Divider(
                     startIndent = 8.dp,
                     color = NewsTheme.colors.chatListDivider,
@@ -97,14 +121,23 @@ fun NewsList(pois: List<Poi>) {
 
 @Composable
 fun NewsList(viewModel: NewsViewModel) {
-    Column(Modifier.fillMaxSize()) {
-        PoiListTopBar()
-        Box(
-          Modifier
-            .background(NewsTheme.colors.background)
-            .fillMaxSize()
-        ) {
-            NewsList(viewModel.poiList)
-        }
-    }
+
+    val state by viewModel.stateLiveData.observeAsState()
+    val newsModel by viewModel.newsLiveData.observeAsState()
+
+    LoadingPage(state = state!!,
+        loadInit = {
+            viewModel.getNewsLists()
+        }, contentView = {
+            Column(Modifier.fillMaxSize()) {
+                PoiListTopBar()
+                Box(
+                    Modifier
+                        .background(NewsTheme.colors.background)
+                        .fillMaxSize()
+                ) {
+                    newsModel?.data?.let { NewsList(it.news) }
+                }
+            }
+        })
 }
