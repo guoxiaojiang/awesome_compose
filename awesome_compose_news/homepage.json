@@ -46,7 +46,7 @@
       {
         "title": "Compose 项目实战",
         "pic": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fgithub.com%2FSeachal%2FLearn-Jetpack-Compose-By-Example%2Fraw%2Fmaster%2Fscreenshots%2Fjetpack_compose_poster.png&refer=http%3A%2F%2Fgithub.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1656955448&t=9e8089d3915ef3b9f5a162e890dc910c",
-        "author": "郭子",
+        "author": "庞老师，郭子",
         "date": "2022-06-06",
         "content": "在学习了开发工具和简单示例之后，本章开始就可以系统性地开始Compose之旅了，本章主要内容是开发Compose应用程序需要具备的一些基础知识，包括Kotlin相关知识、Composable函数的详解、副作用的概念和在Compose中的应用、Compose编程思想。"
       }
