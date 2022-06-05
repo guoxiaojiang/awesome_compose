@@ -5,7 +5,7 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-const val COMPOSE_BOOK_URL = "https://github.com/guoxiaojiang/awesome_compose/raw/main/"
+const val COMPOSE_BOOK_URL = "https://guoxj.oss-cn-beijing.aliyuncs.com/compose/"
 
 private val okHttpClient by lazy {
     OkHttpClient.Builder().build()

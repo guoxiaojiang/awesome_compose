@@ -6,7 +6,7 @@ import retrofit2.http.GET
 interface Api {
 
     companion object {
-        const val NEWS_URL = "awesome_compose_news/homepage.json"
+        const val NEWS_URL = "homepage.json"
     }
 
     @GET(NEWS_URL)

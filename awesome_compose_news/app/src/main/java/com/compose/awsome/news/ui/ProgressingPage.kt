@@ -10,6 +10,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import com.compose.awsome.news.R
 import com.compose.awsome.news.data.DataState
 
 @Composable
@@ -33,7 +34,7 @@ fun LoadingPage(
                             loadInit?.invoke()
                         }
                 ) {
-                    Image(painterResource(android.R.drawable.stat_notify_error), null, Modifier.size(80.dp))
+                    Image(painterResource(R.mipmap.ic_network_error), null, Modifier.size(80.dp))
                     Text((state as DataState.Error).errorMsg.toString())
                 }
             }
