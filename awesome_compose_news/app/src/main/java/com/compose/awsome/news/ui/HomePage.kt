@@ -15,8 +15,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.compose.awsome.news.R
-import com.compose.awsome.news.NewsViewModel
+import com.compose.awsome.news.viewmodel.NewsViewModel
 import com.compose.awsome.news.ui.theme.NewsTheme
+import com.compose.awsome.news.viewmodel.AppViewModel
+import com.compose.awsome.news.viewmodel.VideosViewModel
 
 @Composable
 fun HomeBottomBar(current: Int, currentChanged: (Int) -> Unit) {
@@ -80,19 +82,21 @@ fun NewsBottomPreview() {
 
 @Composable
 fun Home() {
-  val viewModel: NewsViewModel = viewModel()
+  val appViewModel: AppViewModel = viewModel()
+  val newsViewModel: NewsViewModel = viewModel()
+  val videosViewModel: VideosViewModel = viewModel()
   Box {
     Column(Modifier.fillMaxSize()) {
       val pagerState: PagerState = run {
-        remember(viewModel.theme) { PagerState(maxPage = 3) }
+        remember(appViewModel.theme) { PagerState(maxPage = 3) }
       }
       Pager(pagerState, Modifier.weight(1f)) {
         when (page) {
           0 -> {
-            NewsList(viewModel)
+            NewsList(newsViewModel)
           }
           1 -> {
-            VideoList(viewModel)
+            VideoList(videosViewModel)
           }
           2 -> {
             SquarePage()

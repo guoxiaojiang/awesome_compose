@@ -12,8 +12,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.compose.awsome.news.R
-import com.compose.awsome.news.NewsViewModel
+import com.compose.awsome.news.viewmodel.NewsViewModel
 import com.compose.awsome.news.ui.theme.NewsTheme
+import com.compose.awsome.news.viewmodel.AppViewModel
 import com.google.accompanist.insets.navigationBarsPadding
 import com.google.accompanist.insets.statusBarsPadding
 
@@ -30,7 +31,7 @@ fun NewsTopBar(title: String, onBack: (() -> Unit)? = null) {
         .height(48.dp)
     ) {
       Spacer(Modifier.weight(1f))
-      val viewModel: NewsViewModel = viewModel()
+      val viewModel: AppViewModel = viewModel()
       Icon(
         painterResource(R.drawable.ic_change_theme),
         "切换主题",

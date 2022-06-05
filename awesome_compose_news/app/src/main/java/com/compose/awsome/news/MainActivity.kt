@@ -7,6 +7,8 @@ import androidx.activity.viewModels
 import androidx.core.view.WindowCompat
 import com.compose.awsome.news.ui.Home
 import com.compose.awsome.news.ui.theme.NewsTheme
+import com.compose.awsome.news.viewmodel.AppViewModel
+import com.compose.awsome.news.viewmodel.NewsViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,7 +16,7 @@ class MainActivity : ComponentActivity() {
 
         WindowCompat.setDecorFitsSystemWindows(window, false)
 
-        val viewModel: NewsViewModel by viewModels()
+        val viewModel: AppViewModel by viewModels()
         setContent {
             NewsTheme(theme = viewModel.theme) {
                 Home()

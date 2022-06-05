@@ -22,23 +22,23 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberImagePainter
-import com.compose.awsome.news.NewsViewModel
+import com.compose.awsome.news.viewmodel.NewsViewModel
 import com.compose.awsome.news.data.NewsItem
 import com.compose.awsome.news.ui.theme.NewsTheme
 
 @Composable
-fun PoiListTopBar() {
+fun NewsListTopBar() {
     NewsTopBar(title = "Compose 头条")
 }
 
 @Preview(showBackground = true)
 @Composable
-fun PoiListTopBarPreview() {
-    PoiListTopBar()
+fun NewsListTopBarPreview() {
+    NewsListTopBar()
 }
 
 @Composable
-fun PoiListItem(
+fun NewsListItem(
     item: NewsItem
 ) {
     Row(
@@ -106,8 +106,8 @@ fun NewsList(newsItem: List<NewsItem>) {
             .background(NewsTheme.colors.listItem)
             .fillMaxWidth()
     ) {
-        itemsIndexed(newsItem) { index, poi ->
-            PoiListItem(poi)
+        itemsIndexed(newsItem) { index, item ->
+            NewsListItem(item)
             if (index < newsItem.size - 1) {
                 Divider(
                     startIndent = 8.dp,
@@ -122,15 +122,15 @@ fun NewsList(newsItem: List<NewsItem>) {
 @Composable
 fun NewsList(viewModel: NewsViewModel) {
 
-    val state by viewModel.stateLiveData.observeAsState()
+    val state by viewModel.newsStateLiveData.observeAsState()
     val newsModel by viewModel.newsLiveData.observeAsState()
 
     LoadingPage(state = state!!,
         loadInit = {
-            viewModel.getNewsLists()
+            viewModel.fetchNewsList()
         }, contentView = {
             Column(Modifier.fillMaxSize()) {
-                PoiListTopBar()
+                NewsListTopBar()
                 Box(
                     Modifier
                         .background(NewsTheme.colors.background)
