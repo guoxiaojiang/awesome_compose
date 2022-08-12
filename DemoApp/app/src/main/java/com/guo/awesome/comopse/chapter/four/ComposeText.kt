@@ -2,24 +2,23 @@ package com.guo.awesome.comopse.chapter.four
 
 import android.util.Log
 import android.widget.Toast
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.text.selection.DisableSelection
 import androidx.compose.foundation.text.selection.SelectionContainer
-import androidx.compose.material.OutlinedTextField
-import androidx.compose.material.Text
-import androidx.compose.material.TextField
+import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.*
 import androidx.compose.ui.text.font.Font
@@ -95,17 +94,37 @@ val firasansFonts = FontFamily(
 @Composable
 fun TestCustomFontFamilies() {
     Column {
-        Text(text = "Hello Compose!", fontFamily = firasansFonts, fontWeight = FontWeight.Bold)
+        Text(
+            text = "Hello Compose!",
+            fontFamily = firasansFonts,
+            fontWeight = FontWeight.Bold
+        )
         Text(
             text = "Hello Compose!",
             fontFamily = firasansFonts,
             fontWeight = FontWeight.Normal,
             fontStyle = FontStyle.Italic
         )
-        Text(text = "Hello Compose!", fontFamily = firasansFonts, fontWeight = FontWeight.Light)
-        Text(text = "Hello Compose!", fontFamily = firasansFonts, fontWeight = FontWeight.Medium)
-        Text(text = "Hello Compose!", fontFamily = firasansFonts, fontWeight = FontWeight.Normal)
-        Text(text = "Hello Compose!", fontFamily = firasansFonts, fontWeight = FontWeight.Thin)
+        Text(
+            text = "Hello Compose!",
+            fontFamily = firasansFonts,
+            fontWeight = FontWeight.Light
+        )
+        Text(
+            text = "Hello Compose!",
+            fontFamily = firasansFonts,
+            fontWeight = FontWeight.Medium
+        )
+        Text(
+            text = "Hello Compose!",
+            fontFamily = firasansFonts,
+            fontWeight = FontWeight.Normal
+        )
+        Text(
+            text = "Hello Compose!",
+            fontFamily = firasansFonts,
+            fontWeight = FontWeight.Thin
+        )
     }
 }
 
@@ -153,7 +172,9 @@ fun TestTextMultipleStyles() {
                 }
                 append("ello ")
 
-                withStyle(style = SpanStyle(fontWeight = FontWeight.Bold, color = Color.Red)) {
+                withStyle(
+                    style = SpanStyle(fontWeight = FontWeight.Bold, color = Color.Red)
+                ) {
                     append("C")
                 }
                 append("ompose")
@@ -166,7 +187,9 @@ fun TestTextMultipleStyles() {
                     withStyle(style = SpanStyle(color = Color.Blue)) {
                         append("Hello\n")
                     }
-                    withStyle(style = SpanStyle(color = Color.Green, fontSize = 30.sp)) {
+                    withStyle(
+                        style = SpanStyle(color = Color.Green, fontSize = 30.sp)
+                    ) {
                         append("Compose ")
                     }
                     append("World")
@@ -300,3 +323,218 @@ fun TestPasswordTextField() {
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password)
     )
 }
+
+
+/*********Compose 按钮控件************/
+@Composable
+fun TestButton() {
+    Button(onClick = { /*TODO*/ }) {
+        Text(text = "这是一个按钮")
+    }
+}
+
+@Composable
+fun TestButton1() {
+    Button(
+        onClick = { /*TODO*/ },
+        shape = RoundedCornerShape(10.dp)
+    ) {
+        Text(text = "这是一个按钮")
+    }
+}
+
+@Composable
+fun MyButton(
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    content: @Composable RowScope.() -> Unit
+) {
+    Button(
+        colors = ButtonDefaults.buttonColors(
+            backgroundColor = MaterialTheme.colors.secondary
+        ),
+        onClick = onClick,
+        modifier = modifier,
+        content = content
+    )
+}
+
+
+/*********Compose 图片控件**************/
+@Composable
+fun TestImage() {
+    Image(
+        painter = painterResource(id = R.drawable.scenary),
+        contentDescription = "This is an Image"
+    )
+}
+
+@Composable
+fun TestImageAlpha() {
+    Box(contentAlignment = Alignment.Center) {
+        Text(text = "文字内容")
+        Image(
+            painter = painterResource(id = R.drawable.scenary),
+            contentDescription = "This is an Image",
+            alpha = 0.8f //设置图片的不透明度
+        )
+    }
+}
+
+//SubcomposeAsyncImage(
+//    model = "https://example.com/image.jpg",
+//    contentDescription = stringResource(R.string.description)
+//) {
+//    val state = painter.state
+//    if (state is AsyncImagePainter.State.Loading || state is AsyncImagePainter.State.Error) {
+//        CircularProgressIndicator()
+//    } else {
+//        SubcomposeAsyncImageContent()
+//    }
+//}
+
+
+/*********Compose 布局组件*********/
+@Composable
+fun ArtistCard() {
+    Column {
+        Text("Alfred Sisley")
+        Text("3 minutes ago")
+    }
+}
+
+@Composable
+fun TestModifier() {
+    val context = LocalContext.current
+    val content = "你好！"
+    Row(modifier = Modifier.clickable {
+        Toast
+            .makeText(
+                context,
+                content,
+                Toast.LENGTH_SHORT
+            )
+            .show()
+    }) {
+        Text(text = content)
+    }
+}
+
+
+@Composable
+fun Image(imageUrl: String) {
+    //TODO
+}
+
+@Composable
+fun Title(title: String) {
+    //TODO
+}
+
+@Composable
+fun Description(desc: String) {
+    //TODO
+}
+
+@Composable
+fun Description(description: String, showMore: Boolean, onShowMoreToggled: (Boolean) -> Unit) {
+    //TODO
+}
+
+@Composable
+fun Card(
+    imageUrl: String,
+    title: String,
+    description: String
+) {
+    BoxWithConstraints {
+        if (maxWidth < 400.dp) {
+            Column {
+                Image(imageUrl)
+                Title(title)
+            }
+        } else {
+            Row {
+                Column {
+                    Title(title)
+                    Description(description)
+                }
+                Image(imageUrl)
+            }
+        }
+    }
+}
+
+@Composable
+fun Card1(
+    imageUrl: String,
+    title: String,
+    description: String
+) {
+    var showMore by remember { mutableStateOf(false) }
+
+    BoxWithConstraints {
+        if (maxWidth < 400.dp) {
+            Column {
+                Image(imageUrl)
+                Title(title)
+            }
+        } else {
+            Row {
+                Column {
+                    Title(title)
+                    Description(
+                        description = description,
+                        showMore = showMore,
+                        onShowMoreToggled = { newValue ->
+                            showMore = newValue
+                        }
+                    )
+                }
+                Image(imageUrl)
+            }
+        }
+    }
+}
+
+
+//@ExperimentalComposeUiApi
+//@Composable
+//fun TestConstraintLayout() {
+//    ConstraintLayout(modifier = Modifier.fillMaxSize()) {
+//// 创建3个引用
+//        val (text, buttonLeft, buttonRight) = createRefs()
+//
+//        // 将引用 text 与可组合项 Text 关联
+//        Text("This is the content of Text", Modifier.constrainAs(text) {
+//            //将Text可组合项约束到父项的中心位置
+//            centerTo(parent)
+//        })
+//
+//        Button(
+//            onClick = { /* Do something */ },
+//            // 将引用 buttonLeft 与可组合项 Button 关联
+//            modifier = Modifier.constrainAs(buttonLeft) {
+//                // 将 buttonLeft 约束到顶部与 text 底部对齐，并保持16dp的距离
+//                top.linkTo(text.bottom, margin = 16.dp)
+//                // 将 buttonLeft 约束到相对于 text 的 start 边界水平方向轴对称
+//                centerAround(text.start)
+//            }
+//        ) {
+//            Text("Left Button")
+//        }
+//
+//        Button(
+//            onClick = { /* Do something */ },
+//            // 将引用 buttonRight 与可组合项 Button 关联
+//            modifier = Modifier.constrainAs(buttonRight) {
+//                // 将 buttonRight 的顶部约束到与 buttonLeft 顶部对齐
+//                top.linkTo(buttonLeft.top)
+//                // 将 buttonRight 约束到相对于 text 的 end 边界水平方向轴对称
+//                centerAround(text.end)
+//            }
+//        ) {
+//            Text("Right Button")
+//        }
+//    }
+//}
