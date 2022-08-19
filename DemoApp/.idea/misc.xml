@@ -5,6 +5,7 @@
       <map>
         <entry key="../../../../../../../layout/compose-model-1658659364354.xml" value="0.1" />
         <entry key="../../../../../../layout/compose-model-1651681397520.xml" value="0.3254414125200642" />
+        <entry key="../../../../../.gradle/caches/transforms-3/57906799c4e4a8441409276458bddb3c/transformed/jetified-appcompat-resources-1.2.0/res/drawable/abc_vector_test.xml" value="0.246" />
         <entry key="../../../../layout/compose-model-1618562997712.xml" value="0.5" />
         <entry key="../../../../layout/compose-model-1619095753483.xml" value="0.47962962962962963" />
         <entry key="../../../../layout/compose-model-1619587681115.xml" value="0.46296296296296297" />
@@ -18,6 +19,7 @@
         <entry key="../../../../layout/compose-model-1645496895760.xml" value="0.23543616057953518" />
         <entry key="../../../../layout/compose-model-1645843433282.xml" value="0.23537844036697247" />
         <entry key="../../../../layout/compose-model-1645945165785.xml" value="0.12685185185185185" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.171" />
         <entry key="app/src/main/res/layout/layout.xml" value="0.3292572463768116" />
       </map>
     </option>
