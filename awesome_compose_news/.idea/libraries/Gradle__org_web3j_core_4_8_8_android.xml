@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: org.web3j:core:4.8.8-android">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.web3j/core/4.8.8-android/ab3af756d77c7d40cb5cb772831a00cd668a6c0c/core-4.8.8-android.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.web3j/core/4.8.8-android/32322ae6cd0d095d517e5f492fa31e3c8fbb6907/core-4.8.8-android-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.web3j/core/4.8.8-android/97346e04c2b8c00149c5ff2488611b23304038ff/core-4.8.8-android-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

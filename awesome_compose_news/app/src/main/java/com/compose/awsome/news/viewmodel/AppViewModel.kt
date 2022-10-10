@@ -16,4 +16,5 @@ import kotlinx.coroutines.launch
 
 class AppViewModel : ViewModel() {
     var theme by mutableStateOf(NewsTheme.Theme.Light)
+    var currentPage by mutableStateOf(0)
 }
