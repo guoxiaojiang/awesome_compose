@@ -30,8 +30,20 @@ fun NewsTopBar(title: String, onBack: (() -> Unit)? = null) {
       Modifier
         .height(48.dp)
     ) {
-      Spacer(Modifier.weight(1f))
       val viewModel: AppViewModel = viewModel()
+      if (onBack != null) {
+        Icon(
+          painterResource(R.drawable.ic_back_btn),
+          "返回",
+          Modifier
+            .clickable(onClick = onBack)
+            .align(Alignment.CenterVertically)
+            .size(36.dp)
+            .padding(8.dp),
+          tint = NewsTheme.colors.icon
+        )
+      }
+      Spacer(Modifier.weight(1f))
       Icon(
         painterResource(R.drawable.ic_change_theme),
         "切换主题",

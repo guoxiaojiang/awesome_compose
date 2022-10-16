@@ -14,6 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHostController
 import com.compose.awsome.news.R
 import com.compose.awsome.news.viewmodel.NewsViewModel
 import com.compose.awsome.news.ui.theme.NewsTheme
@@ -81,33 +82,37 @@ fun NewsBottomPreview() {
 }
 
 @Composable
-fun Home() {
+fun Home(navHostController: NavHostController) {
   val appViewModel: AppViewModel = viewModel()
   val newsViewModel: NewsViewModel = viewModel()
   val videosViewModel: VideosViewModel = viewModel()
-  Box {
-    Column(Modifier.fillMaxSize()) {
-      val pagerState: PagerState = run {
-        remember(appViewModel.theme) { PagerState(maxPage = 3) }
-      }
-      Pager(pagerState, Modifier.weight(1f)) {
-        when (page) {
-          0 -> {
-            NewsList(newsViewModel)
-          }
-          1 -> {
-            VideoList(videosViewModel)
-          }
-          2 -> {
-            SquarePage()
-          }
-          3 -> {
-            MinePge()
+  NewsTheme(theme = appViewModel.theme) {
+    Box {
+      Column(Modifier.fillMaxSize()) {
+        val pagerState: PagerState = run {
+          remember(appViewModel.theme) { PagerState(maxPage = 3) }
+        }
+        Pager(pagerState, Modifier.weight(1f)) {
+          when (page) {
+            0 -> {
+              NewsList(newsViewModel)
+            }
+            1 -> {
+              VideoList(videosViewModel)
+            }
+            2 -> {
+              SquarePage()
+            }
+            3 -> {
+              MinePge(newsViewModel, navHostController)
+            }
           }
         }
-      }
-      HomeBottomBar(pagerState.currentPage) {
-        pagerState.currentPage = it
+        pagerState.currentPage = appViewModel.currentPage
+        HomeBottomBar(pagerState.currentPage) {
+          appViewModel.currentPage = it
+          pagerState.currentPage = it
+        }
       }
     }
   }
