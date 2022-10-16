@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyVerticalGrid
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -18,7 +19,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.*
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.*
-import androidx.compose.ui.unit.R
+import com.guo.awesome.comopse.chapter.R
 
 @Composable
 fun MyCustomLayout(
@@ -172,6 +173,15 @@ fun ListWithHeader(items: List<Message>) {
     }
 }
 
+@Composable
+fun MessageHeader() {
+    TODO()
+}
+
+@Composable
+fun MessageItem(msg: Message) {
+    TODO()
+}
 
 data class Contact(var name: String, var desc: String?)
 
@@ -215,7 +225,7 @@ fun ContactItem(contact: Contact) {
         verticalAlignment = Alignment.CenterVertically
     ) {
         Image(
-            painter = painterResource(id = R.drawable.header),
+            painter = painterResource(id = R.drawable.ic_launcher_background),
             contentDescription = null,
             modifier = Modifier
                 .clip(CircleShape)
@@ -252,4 +262,9 @@ fun PhotoGrid(photos: List<Photo>) {
             PhotoItem(photo)
         }
     }
+}
+
+@Composable
+fun PhotoItem(photo: Photo) {
+    TODO()
 }
