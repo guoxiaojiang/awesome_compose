@@ -25,6 +25,7 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.guo.awesome.comopse.chapter.seven.Addition
+import com.guo.awesome.comopse.chapter.seven.LearnRemind
 import com.guo.awesome.comopse.chapter.theme.MyApplicationTheme
 
 class MainActivity : ComponentActivity() {
@@ -67,10 +68,11 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             MyApplicationTheme(true) {
-                var count by remember { mutableStateOf(0) }
-                Addition(count) {
-                    count += 1
-                }
+//                var count by remember { mutableStateOf(0) }
+//                Addition(count) {
+//                    count += 1
+//                }
+                LearnRemind()
             }
         }
     }

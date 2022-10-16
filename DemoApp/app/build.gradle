@@ -5,13 +5,12 @@ plugins {
 }
 
 android {
-    compileSdk 32
-    buildToolsVersion "32.0.0"
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.guo.awesome.comopse"
         minSdk 21
-        targetSdk 30
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -40,7 +39,6 @@ android {
     }
     composeOptions {
         kotlinCompilerExtensionVersion compose_version
-        kotlinCompilerVersion '1.5.10'
     }
 }
 
@@ -60,7 +58,7 @@ dependencies {
     implementation "androidx.compose.runtime:runtime-rxjava3:$compose_version"
     implementation "androidx.paging:paging-compose:1.0.0-alpha15"
     implementation 'androidx.constraintlayout:constraintlayout-compose:1.0.1'
-    implementation 'androidx.compose.animation:animation-graphics:+'
+    implementation "androidx.compose.animation:animation-graphics:1.1.0"
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
