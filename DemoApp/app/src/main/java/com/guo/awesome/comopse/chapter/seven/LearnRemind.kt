@@ -25,7 +25,7 @@ fun LearnRemind() {
             .background(Color.LightGray)
             .padding(16.dp)
     ) {
-        var count by remember { mutableStateOf(0) }
+        var count by rememberSaveable { mutableStateOf(0) }
         var countText by remember { mutableStateOf("") }
         Row(verticalAlignment = Alignment.CenterVertically) {
             Button(onClick = {
