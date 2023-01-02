@@ -189,10 +189,10 @@ fun TestColorResource() {
 @Composable
 fun TestImageResource() {
     Image(painter = painterResource(id = R.drawable.scenary), contentDescription = "")
-    Icon(painter = painterResource(id = R.drawable.abc_vector_test), contentDescription = "")
+    Icon(painter = painterResource(id = R.drawable.ic_launcher_background), contentDescription = "")
 
     //矢量动画
-    val image = AnimatedImageVector.animatedVectorResource(id = R.drawable.abc_vector_test)
+    val image = AnimatedImageVector.animatedVectorResource(id = R.drawable.ic_launcher_background)
     val atEnd by remember { mutableStateOf(false) }
     Image(
         painter = rememberAnimatedVectorPainter(image, atEnd),
