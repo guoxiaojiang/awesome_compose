@@ -11,17 +11,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.compose.awsome.techchat.ui.theme.NewsTheme
+import com.compose.awsome.techchat.ui.theme.AwesomeTechTheme
 import com.compose.awsome.techchat.viewmodel.AppViewModel
 import com.google.accompanist.insets.navigationBarsPadding
 import com.google.accompanist.insets.statusBarsPadding
 import com.compose.awsome.techchat.R
 
 @Composable
-fun AwesomeTechTopBar(title: String, onBack: (() -> Unit)? = null) {
+fun AwesomeTechTopBar(title: String = "", onBack: (() -> Unit)? = null) {
   Box(
     Modifier
-      .background(NewsTheme.colors.background)
+      .background(AwesomeTechTheme.colors.background)
       .fillMaxWidth()
       .statusBarsPadding()
   ) {
@@ -39,7 +39,7 @@ fun AwesomeTechTopBar(title: String, onBack: (() -> Unit)? = null) {
             .align(Alignment.CenterVertically)
             .size(36.dp)
             .padding(8.dp),
-          tint = NewsTheme.colors.icon
+          tint = AwesomeTechTheme.colors.icon
         )
       }
       Spacer(Modifier.weight(1f))
@@ -49,17 +49,17 @@ fun AwesomeTechTopBar(title: String, onBack: (() -> Unit)? = null) {
         Modifier
           .clickable(onClick = {
             viewModel.theme = when (viewModel.theme) {
-              NewsTheme.Theme.Light -> NewsTheme.Theme.Dark
-              NewsTheme.Theme.Dark -> NewsTheme.Theme.Light
+              AwesomeTechTheme.Theme.Light -> AwesomeTechTheme.Theme.Dark
+              AwesomeTechTheme.Theme.Dark -> AwesomeTechTheme.Theme.Light
             }
           })
           .align(Alignment.CenterVertically)
           .size(36.dp)
           .padding(8.dp),
-        tint = NewsTheme.colors.icon
+        tint = AwesomeTechTheme.colors.icon
       )
     }
-    Text(title, Modifier.align(Alignment.Center), color = NewsTheme.colors.textPrimary)
+    Text(title, Modifier.align(Alignment.Center), color = AwesomeTechTheme.colors.textPrimary)
   }
 }
 
@@ -68,7 +68,7 @@ fun AwesomeTechBottomBar(modifier: Modifier = Modifier, content: @Composable Row
   Row(
     modifier
       .fillMaxWidth()
-      .background(NewsTheme.colors.bottomBar)
+      .background(AwesomeTechTheme.colors.bottomBar)
       .padding(4.dp, 0.dp)
       .navigationBarsPadding(),
     content = content

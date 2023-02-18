@@ -22,7 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.compose.awsome.techchat.route.RouteConfig
-import com.compose.awsome.techchat.ui.theme.NewsTheme
+import com.compose.awsome.techchat.ui.theme.AwesomeTechTheme
 import com.compose.awsome.techchat.viewmodel.ArticleViewModel
 
 @Composable
@@ -36,7 +36,7 @@ fun MinePge(viewModel: ArticleViewModel, navHostController: NavHostController) {
         MineTopBar()
         Box(
           Modifier
-            .background(NewsTheme.colors.listItem)
+            .background(AwesomeTechTheme.colors.listItem)
             .fillMaxSize()
         ) {
             Column(modifier = Modifier.padding(10.dp)) {

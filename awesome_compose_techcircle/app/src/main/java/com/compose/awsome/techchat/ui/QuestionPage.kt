@@ -1,7 +1,6 @@
 package com.compose.awsome.techchat.ui
 
 import android.webkit.WebSettings
-import android.webkit.WebView
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -9,9 +8,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
-import com.compose.awsome.techchat.ui.theme.NewsTheme
+import com.compose.awsome.techchat.ui.theme.AwesomeTechTheme
 
 @Composable
 fun QuestionTopBar() {
@@ -30,7 +28,7 @@ fun QuestionPage(onBack: () -> Unit) {
         QuestionTopBar()
         Box(
             Modifier
-                .background(NewsTheme.colors.background)
+                .background(AwesomeTechTheme.colors.background)
                 .fillMaxSize()
         ) {
             AwesomeTechWebView(

@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.rememberImagePainter
-import com.compose.awsome.techchat.ui.theme.NewsTheme
+import com.compose.awsome.techchat.ui.theme.AwesomeTechTheme
 import com.compose.awsome.techchat.viewmodel.VideosViewModel
 import com.compose.awsome.techchat.R
 import com.compose.awsome.techchat.model.video.VideoItem
@@ -68,7 +68,7 @@ fun VideoListItem(
         Text(
             item.title,
             fontSize = 16.sp,
-            color = NewsTheme.colors.textPrimary,
+            color = AwesomeTechTheme.colors.textPrimary,
             maxLines = 2,
             fontWeight = FontWeight.Bold,
             overflow = TextOverflow.Ellipsis,
@@ -93,7 +93,7 @@ fun VideoListItem(
             Text(
                 item.author,
                 fontSize = 12.sp,
-                color = NewsTheme.colors.textPrimaryMe,
+                color = AwesomeTechTheme.colors.textPrimaryMe,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
                 modifier = Modifier.padding(start = 5.dp)
@@ -132,7 +132,7 @@ fun VideoListItem(
             Text(
                 "分享",
                 fontSize = 12.sp,
-                color = NewsTheme.colors.textSecondary,
+                color = AwesomeTechTheme.colors.textSecondary,
                 maxLines = 1,
                 modifier = Modifier.padding(start = 3.dp, end = 28.dp)
             )
@@ -149,7 +149,7 @@ fun VideoListItem(
             Text(
                 "收藏",
                 fontSize = 12.sp,
-                color = NewsTheme.colors.textSecondary,
+                color = AwesomeTechTheme.colors.textSecondary,
                 maxLines = 1,
                 modifier = Modifier.padding(start = 3.dp, end = 28.dp)
             )
@@ -166,7 +166,7 @@ fun VideoListItem(
             Text(
                 "102",
                 fontSize = 12.sp,
-                color = NewsTheme.colors.textSecondary,
+                color = AwesomeTechTheme.colors.textSecondary,
                 maxLines = 1,
                 modifier = Modifier.padding(start = 3.dp, end = 28.dp)
             )
@@ -183,7 +183,7 @@ fun VideoListItem(
             Text(
                 "9022",
                 fontSize = 12.sp,
-                color = NewsTheme.colors.textSecondary,
+                color = AwesomeTechTheme.colors.textSecondary,
                 maxLines = 1,
                 modifier = Modifier.padding(start = 3.dp)
             )
@@ -223,7 +223,7 @@ fun VideoList(videos: List<VideoItem>, viewModel: VideosViewModel) {
     }
     LazyColumn(
         Modifier
-            .background(NewsTheme.colors.listItem)
+            .background(AwesomeTechTheme.colors.listItem)
             .fillMaxWidth(),
         listState
     ) {
@@ -243,7 +243,7 @@ fun VideoList(videos: List<VideoItem>, viewModel: VideosViewModel) {
             if (index < videos.size - 1) {
                 Divider(
                     startIndent = 8.dp,
-                    color = NewsTheme.colors.chatListDivider,
+                    color = AwesomeTechTheme.colors.chatListDivider,
                     thickness = 0.8f.dp
                 )
             }
@@ -265,7 +265,7 @@ fun VideoList(viewModel: VideosViewModel) {
                 VideoListTopBar()
                 Box(
                     Modifier
-                        .background(NewsTheme.colors.background)
+                        .background(AwesomeTechTheme.colors.background)
                         .fillMaxSize()
                 ) {
                     videosModel?.data?.let { VideoList(it.videos, viewModel) }

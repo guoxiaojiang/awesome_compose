@@ -2,6 +2,7 @@
   "data": {
     "articles": [
       {
+        "id": 1,
         "title": "认识 Compose",
         "pic": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic4.zhimg.com%2Fv2-b66d61d2a9d4d2d010390830f15b15d7_b.jpg&refer=http%3A%2F%2Fpic4.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1656955091&t=e1519cf4ed8473659d581a5ef6146111",
         "author": "郭子",
@@ -10,6 +11,7 @@
         "content": "在过去的十年中，从开发者角度来讲，Android领域的开发体验并不是非常友好，开发者常常被太多的样板代码所困扰，尤其是和近些年前端领域的开发体验比起来尤为明显。Jetpack Compose的产生很大一个原因就是要解决这个问题。"
       },
       {
+        "id": 2,
         "title": "Compose 开发环境",
         "pic": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic.wangt.cc%2Fdownload%2Fpic_router.php%3Fpath%3Dhttps%3A%2F%2Fimg2020.cnblogs.com%2Fblog%2F375390%2F202108%2F375390-20210812104557060-1550436339.png&refer=http%3A%2F%2Fpic.wangt.cc&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1656955168&t=acf6c841d1e2e71d732950407a770350",
         "author": "庞老师",
@@ -18,6 +20,7 @@
         "content": "工欲善其事，必先利其器。开发环境的配置、IDE的使用方式、Demo。在对Compose的概念和优势、产生背景了解之后，下一步就可以开始尝试上手体验简单的Compose编程了。笔者认为，学习一门技术最高效的方式就是从最简单的示例开始上手实践。"
       },
       {
+        "id": 3,
         "title": "Compose 知识储备",
         "pic": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2F79dc26242c2624a5d09334a2ced9bab052e1ffc8.png&refer=http%3A%2F%2Fi0.hdslb.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1656948695&t=e81641a8a9996ff39e5fda53c283af11",
         "author": "郭子",
@@ -26,6 +29,7 @@
         "content": "在学习了开发工具和简单示例之后，本章开始就可以系统性地开始Compose之旅了，本章主要内容是开发Compose应用程序需要具备的一些基础知识，包括Kotlin相关知识、Composable函数的详解、副作用的概念和在Compose中的应用、Compose编程思想。"
       },
       {
+        "id": 4,
         "title": "Compose 界面编程基础",
         "pic": "https://alifei04.cfp.cn/creative/vcg/800/new/VCG41N825412870.jpg",
         "author": "庞老师",
@@ -34,6 +38,7 @@
         "content": "有了前几章对 Jetpack Compose 的基础认识后，本章开始正式进入 Compose 的界面编程内容。Compose 作为 Google 官方推出的全新的 UI 框架，旨在替换 Android 原生 View 系统的 UI 设计方式，Compose 提供了丰富的 Material Design 组件，帮助开发者可以更轻松自如地进行 App 界面开发"
       },
       {
+        "id": 5,
         "title": "Compose 界面编程进阶",
         "pic": "https://tenfei02.cfp.cn/creative/vcg/800/new/VCG211228288375-XQI.jpg",
         "author": "郭子",
@@ -42,6 +47,7 @@
         "content": "上一章内容介绍了 Compose 的一些基础控件，读者可以结合示例代码开发出简单的界面，这些控件也是 Compose 开发中必不可少的元素，但仅仅掌握了基础控件的使用不能开发出复杂优美的应用界面。本章就在前一章内容的基础上进一步讲解 Compose 中高级控件的使用，学会使用 Compose 开发酷炫的应用界面。"
       },
       {
+        "id": 6,
         "title": "深入了解Compose UI 体系",
         "pic": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fi1.hdslb.com%2Fbfs%2Farchive%2F5a8838c3c62d18297da24a83e5fa1b9d2be99f5a.jpg&refer=http%3A%2F%2Fi1.hdslb.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1656955448&t=0ae7e4c8081d2e8375b9d194647199e7",
         "author": "郭子",
@@ -50,6 +56,7 @@
         "content": "本章内容建立在读者会熟练使用 Compose 编写常用的UI界面的基础上，Compose 开发者有必要更深一步地了解 Compose UI体系的一些重要组成部分和原理。"
       },
       {
+        "id": 7,
         "title": "Compose 项目实战",
         "pic": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fgithub.com%2FSeachal%2FLearn-Jetpack-Compose-By-Example%2Fraw%2Fmaster%2Fscreenshots%2Fjetpack_compose_poster.png&refer=http%3A%2F%2Fgithub.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1656955448&t=9e8089d3915ef3b9f5a162e890dc910c",
         "author": "庞老师，郭子",

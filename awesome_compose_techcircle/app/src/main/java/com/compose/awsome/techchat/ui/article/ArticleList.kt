@@ -30,7 +30,7 @@ import com.compose.awsome.techchat.viewmodel.ArticleViewModel
 import com.compose.awsome.techchat.model.article.ArticleItem
 import com.compose.awsome.techchat.route.RouteConfig
 import com.compose.awsome.techchat.ui.LoadingPage
-import com.compose.awsome.techchat.ui.theme.NewsTheme
+import com.compose.awsome.techchat.ui.theme.AwesomeTechTheme
 import com.compose.awsome.techchat.viewmodel.AppViewModel
 import com.google.accompanist.insets.statusBarsPadding
 
@@ -42,7 +42,7 @@ fun ArticleListItem(
         Modifier
             .fillMaxWidth()
             .clickable(onClick = {
-                navHostController.navigate(RouteConfig.ROUTE_PAGE_ARTICLE_DETAIL)
+                navHostController.navigate("${RouteConfig.ROUTE_PAGE_ARTICLE_DETAIL}/${item.id}")
             })
     ) {
         Image(
@@ -62,7 +62,7 @@ fun ArticleListItem(
             Text(
                 item.title,
                 fontSize = 16.sp,
-                color = NewsTheme.colors.textPrimary,
+                color = AwesomeTechTheme.colors.textPrimary,
                 maxLines = 1,
                 fontWeight = FontWeight.Bold,
                 overflow = TextOverflow.Ellipsis,
@@ -71,7 +71,7 @@ fun ArticleListItem(
             Text(
                 item.content,
                 fontSize = 15.sp,
-                color = NewsTheme.colors.textPrimaryMe,
+                color = AwesomeTechTheme.colors.textPrimaryMe,
                 maxLines = 3,
                 modifier = Modifier.padding(top = 5.dp)
             )
@@ -83,13 +83,13 @@ fun ArticleListItem(
                 Text(
                     item.author,
                     fontSize = 13.sp,
-                    color = NewsTheme.colors.textSecondary,
+                    color = AwesomeTechTheme.colors.textSecondary,
                 )
 
                 Text(
                     item.date,
                     fontSize = 13.sp,
-                    color = NewsTheme.colors.textSecondary,
+                    color = AwesomeTechTheme.colors.textSecondary,
                     modifier = Modifier.padding(start = 6.dp)
                 )
 
@@ -101,7 +101,7 @@ fun ArticleListItem(
                     Text(
                         it,
                         fontSize = 13.sp,
-                        color = NewsTheme.colors.textSecondary,
+                        color = AwesomeTechTheme.colors.textSecondary,
                         modifier = Modifier.padding(start = 2.dp)
                     )
                 }
@@ -109,7 +109,7 @@ fun ArticleListItem(
                 Text(
                     "10w+",
                     fontSize = 13.sp,
-                    color = NewsTheme.colors.textSecondary,
+                    color = AwesomeTechTheme.colors.textSecondary,
                     modifier = Modifier.padding(start = 6.dp)
                 )
             }
@@ -122,7 +122,7 @@ fun ArticleListItem(
 fun ArticleList(articleItems: List<ArticleItem>, viewModel: ArticleViewModel, navHostController: NavHostController) {
     LazyColumn(
         Modifier
-            .background(NewsTheme.colors.listItem)
+            .background(AwesomeTechTheme.colors.listItem)
             .fillMaxWidth()
     ) {
         item {
@@ -154,7 +154,7 @@ fun ArticleList(articleItems: List<ArticleItem>, viewModel: ArticleViewModel, na
             if (index < articleItems.size - 1) {
                 Divider(
                     startIndent = 8.dp,
-                    color = NewsTheme.colors.chatListDivider,
+                    color = AwesomeTechTheme.colors.chatListDivider,
                     thickness = 0.8f.dp
                 )
             }
@@ -166,7 +166,7 @@ fun ArticleList(articleItems: List<ArticleItem>, viewModel: ArticleViewModel, na
 fun CategoryArea(viewModel: ArticleViewModel) {
     Box(
         Modifier
-            .background(NewsTheme.colors.background)
+            .background(AwesomeTechTheme.colors.background)
             .fillMaxWidth()
             .statusBarsPadding()
     ) {
@@ -182,7 +182,7 @@ fun CategoryArea(viewModel: ArticleViewModel) {
                     .align(Alignment.CenterVertically)
                     .size(36.dp)
                     .padding(8.dp),
-                tint = NewsTheme.colors.icon
+                tint = AwesomeTechTheme.colors.icon
             )
             Spacer(Modifier.weight(1f))
             Icon(
@@ -191,14 +191,14 @@ fun CategoryArea(viewModel: ArticleViewModel) {
                 Modifier
                     .clickable(onClick = {
                         viewModel.theme = when (viewModel.theme) {
-                            NewsTheme.Theme.Light -> NewsTheme.Theme.Dark
-                            NewsTheme.Theme.Dark -> NewsTheme.Theme.Light
+                            AwesomeTechTheme.Theme.Light -> AwesomeTechTheme.Theme.Dark
+                            AwesomeTechTheme.Theme.Dark -> AwesomeTechTheme.Theme.Light
                         }
                     })
                     .align(Alignment.CenterVertically)
                     .size(36.dp)
                     .padding(8.dp),
-                tint = NewsTheme.colors.icon
+                tint = AwesomeTechTheme.colors.icon
             )
         }
         Row(
@@ -214,7 +214,7 @@ fun CategoryArea(viewModel: ArticleViewModel) {
                 Text(
                     "在看",
                     fontSize = 16.sp,
-                    color = NewsTheme.colors.textPrimary,
+                    color = AwesomeTechTheme.colors.textPrimary,
                     modifier = Modifier
                         .align(Alignment.Center)
                         .clickable {
@@ -227,7 +227,7 @@ fun CategoryArea(viewModel: ArticleViewModel) {
                             .height(2.dp)
                             .width(14.dp)
                             .align(Alignment.BottomCenter)
-                            .background(NewsTheme.colors.line)
+                            .background(AwesomeTechTheme.colors.line)
                     ) {}
                 }
             }
@@ -242,7 +242,7 @@ fun CategoryArea(viewModel: ArticleViewModel) {
                 Text(
                     "热门",
                     fontSize = 16.sp,
-                    color = NewsTheme.colors.textPrimary,
+                    color = AwesomeTechTheme.colors.textPrimary,
                     modifier = Modifier
                         .align(Alignment.Center)
                         .clickable {
@@ -255,7 +255,7 @@ fun CategoryArea(viewModel: ArticleViewModel) {
                             .height(2.dp)
                             .width(14.dp)
                             .align(Alignment.BottomCenter)
-                            .background(NewsTheme.colors.line)
+                            .background(AwesomeTechTheme.colors.line)
                     ) {}
                 }
             }
@@ -271,7 +271,7 @@ fun CategoryArea(viewModel: ArticleViewModel) {
                 Text(
                     "订阅",
                     fontSize = 16.sp,
-                    color = NewsTheme.colors.textPrimary,
+                    color = AwesomeTechTheme.colors.textPrimary,
                     modifier = Modifier
                         .align(Alignment.Center)
                         .clickable {
@@ -284,7 +284,7 @@ fun CategoryArea(viewModel: ArticleViewModel) {
                             .height(2.dp)
                             .width(14.dp)
                             .align(Alignment.BottomCenter)
-                            .background(NewsTheme.colors.line)
+                            .background(AwesomeTechTheme.colors.line)
                     ) {}
                 }
             }
@@ -306,7 +306,7 @@ fun ArticleList(viewModel: ArticleViewModel, navHostController: NavHostControlle
                 CategoryArea(viewModel)
                 Box(
                     Modifier
-                        .background(NewsTheme.colors.background)
+                        .background(AwesomeTechTheme.colors.background)
                         .fillMaxSize()
                 ) {
                     articlesModel?.data?.let { ArticleList(it.articles, viewModel, navHostController) }

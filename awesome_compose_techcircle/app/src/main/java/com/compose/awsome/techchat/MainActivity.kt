@@ -7,9 +7,11 @@ import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.core.view.WindowCompat
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.compose.awsome.techchat.route.RouteConfig
 import com.compose.awsome.techchat.ui.Home
 import com.compose.awsome.techchat.ui.Web3Page
@@ -24,15 +26,29 @@ class MainActivity : ComponentActivity() {
         val viewModel: AppViewModel by viewModels()
         setContent {
             val navHostController = rememberNavController()
-            NavHost(navController = navHostController, startDestination =  RouteConfig.ROUTE_PAGE_HOME) {
+            NavHost(
+                navController = navHostController,
+                startDestination = RouteConfig.ROUTE_PAGE_HOME
+            ) {
                 composable(RouteConfig.ROUTE_PAGE_HOME) {
                     Home(navHostController) {
                         finish()
                     }
                 }
 
-                composable(RouteConfig.ROUTE_PAGE_ARTICLE_DETAIL) {
-                    ArticleDetail(navHostController)
+                composable(
+                    route = "${RouteConfig.ROUTE_PAGE_ARTICLE_DETAIL}/{articleID}",
+                    arguments = listOf(
+                        navArgument("articleID") {
+                            type = NavType.LongType
+                        })
+                ) {
+                    it.arguments?.let { it1 ->
+                        ArticleDetail(
+                            navHostController,
+                            it1.getLong("articleID")
+                        )
+                    }
                 }
 
                 composable(RouteConfig.ROUTE_PAGE_WEB3) {
@@ -44,7 +60,12 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun checkPerm() {
-        requestPermissions(arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE,
-            Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.MOUNT_UNMOUNT_FILESYSTEMS), 1)
+        requestPermissions(
+            arrayOf(
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.MOUNT_UNMOUNT_FILESYSTEMS
+            ), 1
+        )
     }
 }

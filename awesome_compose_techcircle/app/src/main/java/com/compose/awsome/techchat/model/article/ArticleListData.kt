@@ -16,5 +16,6 @@ class ArticleItem(
     val date: String,
     val author: String,
     val label: String?,
-    val content: String
+    val content: String,
+    val id: Long = 200
 )

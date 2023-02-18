@@ -1,0 +1,14 @@
+{
+  "data": {
+    "title": "Compose：一种全新的声明式UI工具包",
+    "avatar": "https://guoxj.oss-cn-beijing.aliyuncs.com/compose/file/video_cover3.png",
+    "intro": "移动互联网已经发展了十几个年头，为什么当下我们需要一种全新的声明式UI开发框架？",
+    "pic": "https://guoxj.oss-cn-beijing.aliyuncs.com/compose/file/video_cover1.png",
+    "author": "交文水工",
+    "date": "2022年12月20日",
+    "content": "#### Compose是什么？\nCompose 全称 Jetpack Compose，是 Google 在2019年的I/O大会上发布的Android 声明式UI工具包，完全使用 Kotlin 编写，可使用 Kotlin 语言的所有特性。\n官方给它的定位是——用它可以更快地开发出更好的应用。使用它可以简化并加快 Android 的视图开发，使用更少的代码、更强大的工具、更直观的 Kotlin API，得以创造出栩栩如生的应用。\n#### Compose的优势？\n和传统 UI 开发方式相比，Jetpack Compose 在代码量、开发速度、难易程度、功能丰富度等方面都有绝对的优势。这也是为什么大家要拥抱和学习这样一种新的开发框架的原因。\n●**更少的代码**：使用更少的代码实现更多的功能，容错率高，从而使代码简洁且易于维护。\n作为开发工程师来说，大多数情况下希望有更多时间来写业务逻辑，而不是把精力花在诸如动画、颜色变化、主题切换等事情上。读者朋友如果有类似需求经历不妨回想一下，是不是有类似“痛苦”体验。而 Jetpack Compose 为开发者提供了许多开箱即用的 Material 组件，可以用极少的代码去实现酷炫的效果。\n●**直观易用**：开发者只需要描述界面，Compose 就负责处理剩余的工作。数据或者状态发生变化时，页面会自动更新。\n利用 Compose，开发者可以创建不和 Activity 或者 Fragement 绑定的各种“独立”组件，可以无缝复用，并且很容易扩展和维护。\n在 Comopose 中，由于状态的单一可信来源，在组件之间的传递，开发者无需处理太多数据相关的东西。\n●**快速开发**：可复用性极强，Compose 本身组件是可以轻松复用的。另外 Compose 和现有View 也是可以互相兼容的，对现有的库，比如 Navigation、ViewModel、Kotlin 协程，都是有友好支持的，可以直接使用。\n●**功能强大**：Compose 内置了丰富的 API，内置支持了 Material Design、主题切换、动画等，可方便快捷地创建精美应用。",
+    "comment": "本文由 @交文水工 原创发布于技术圈子，若转载请注明来源，谢谢。\n图片来自互联网，侵权请告知删除"
+  },
+  "code": 0,
+  "msg": "success"
+}
