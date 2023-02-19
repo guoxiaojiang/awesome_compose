@@ -30,8 +30,10 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.guo.awesome.comopse.chapter.seven.Addition
+import com.guo.awesome.comopse.chapter.seven.AlertArea
 import com.guo.awesome.comopse.chapter.seven.LearnRemind
 import com.guo.awesome.comopse.chapter.theme.MyApplicationTheme
+import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -76,7 +78,8 @@ class MainActivity : ComponentActivity() {
 //                Addition(count) {
 //                    count += 1
 //                }
-                LearnRemind()
+//                LearnRemind()
+                AlertArea()
             }
         }
     }
@@ -226,7 +229,8 @@ fun DefaultPreview() {
 
 @Composable
 fun LayoutsCodelab() {
-    Scaffold(topBar = {
+    val scaffoldState = rememberScaffoldState()
+    Scaffold(scaffoldState = scaffoldState, topBar = {
         TopAppBar(
             title = {
                 Text(text = "LayoutsCodelab")
@@ -237,13 +241,34 @@ fun LayoutsCodelab() {
                 }
             }
         )
+        remember(scaffoldState, scaffoldState, scaffoldState, scaffoldState, scaffoldState, scaffoldState){
+
+        }
     }) { innerPadding ->
         BodyContent(modifier = Modifier.padding(innerPadding))
     }
 }
 
 @Composable
-fun BodyContent(modifier: Modifier = Modifier) {
+fun MyApp() {
+    MyApplicationTheme {
+        val scaffoldState = rememberScaffoldState()
+        val coroutineScope = rememberCoroutineScope()
+
+        Scaffold(scaffoldState = scaffoldState) {
+            BodyContent(
+                showSnackbar = { message ->
+                    coroutineScope.launch {
+                        scaffoldState.snackbarHostState.showSnackbar(message)
+                    }
+                }
+            )
+        }
+    }
+}
+
+@Composable
+fun BodyContent(modifier: Modifier = Modifier, showSnackbar: (String)-> Unit) {
     val rememberLazyListState = rememberLazyListState()
     Column(modifier = modifier) {
         Text(text = "Hi there!")
@@ -251,8 +276,7 @@ fun BodyContent(modifier: Modifier = Modifier) {
         with(LocalDensity.current) {
             2.toDp().toPx()
         }
-        3.dp
-        rememberLazyListState
+        showSnackbar("hhaa")
     }
 }
 

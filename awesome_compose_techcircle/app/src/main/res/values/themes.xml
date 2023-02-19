@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.AwsomeTech" parent="android:Theme.Material.Light.NoActionBar.TranslucentDecor">
+        <item name="android:statusBarColor">@color/purple_700</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+</resources>
